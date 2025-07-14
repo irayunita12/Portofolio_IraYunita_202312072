@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latihan Perulangan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Daftar Teman Sekelas</h2>
+  <ul id="daftar-matkul">
+    <!-- Konten akan diisi oleh JavaScript -->
+  </ul>
+
+  <script>
+    // Ganti array dengan nama teman sekelas
+    var matkul = ["Andi", "Budi", "Citra", "Dewi", "Eka"];
+    var daftarElement = document.getElementById("daftar-matkul");
+
+    // Tampilkan daftar ke dalam <ul>
+    for (let i = 0; i < matkul.length; i++) {
+      let li = document.createElement("li");
+      li.textContent = matkul[i];
+      daftarElement.appendChild(li);
+    }
+  </script>
+
+</body>
+</html>

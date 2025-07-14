@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Latihan Event Handling</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #inputNama {
+      border: 2px solid #ccc;
+      padding: 8px;
+      transition: border-color 0.3s;
+    }
+    #inputNama:focus {
+      border-color: dodgerblue;
+    }
+    img {
+      width: 200px;
+      height: 150px;
+      border: 2px solid #999;
+      transition: 0.3s;
+    }
+    #hasil {
+      font-weight: bold;
+      color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Event onmouseover & onmouseout</h3>
+  <img
+    id="gambar"
+    src="gambar.jpg"
+    alt="Gambar"
+    onmouseover="gantiGambar()"
+    onmouseout="kembalikanGambar()"
+  >
+
+  <hr>
+
+  <h3>Event onfocus & onchange</h3>
+  <label for="inputNama">Ketik Nama Anda:</label><br><br>
+  <input type="text" id="inputNama" onchange="tampilkanOutput()">
+  <p>Output: <span id="hasil"></span></p>
+
+  <script>
+    function gantiGambar() {
+      document.getElementById("gambar").src =
+        "https://placehold.co/200x150/3498db/fff?text=Gambar+Kedua";
+    }
+
+    function kembalikanGambar() {
+      document.getElementById("gambar").src =
+        "https://placehold.co/200x150/e8e8e8/000?text=Gambar+Awal";
+    }
+
+    function tampilkanOutput() {
+      var nilaiInput = document.getElementById("inputNama").value;
+      document.getElementById("hasil").innerHTML = nilaiInput;
+    }
+  </script>
+
+</body>
+</html>

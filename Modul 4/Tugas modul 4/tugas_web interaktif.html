@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jual Mobil BMW Cepat Indonesia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .navbar {
+      background-color: #1a1a1a;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+    .product-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .clickable:hover {
+      background-color: #e9ecef;
+      cursor: pointer;
+    }
+    .card-shadow {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+    .card-shadow:hover {
+      transform: scale(1.01);
+    }
+    .btn i {
+      margin-right: 5px;
+    }
+    .order-summary p strong {
+      width: 150px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+
+<div class="container my-4">
+    <h1 class="text-center">JMB.ID</h1>
+    <p class="text-center text-muted" id="time-now"></p>
+    <div class="row mt-4">
+
+      <!-- Display Produk Utama -->
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <img id="product-image" class="card-img-top product-image" src="" alt="Mobil BMW">
+          <div class="card-body text-center">
+            <button class="btn btn-secondary me-2" onclick="prevImage()">Previous</button>
+            <button class="btn btn-secondary" onclick="nextImage()">Next</button>
+            <h4 id="product-name" class="mt-3"></h4>
+            <p id="product-price" class="text-success fs-5"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daftar Mobil -->
+      <div class="col-md-4">
+        <h5>Daftar Mobil BMW</h5>
+        <ul class="list-group" id="product-list"></ul>
+      </div>
+    </div>
+
+    <!-- Form Pemesanan -->
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5>Form Pemesanan</h5>
+        <div class="mb-2">
+          <label>Nama Pemesan</label>
+          <input type="text" id="namaPemesan" class="form-control">
+        </div>
+        <div class="mb-2">
+          <label>Jumlah Pesan</label>
+          <input type="number" id="jumlahPesan" class="form-control">
+        </div>
+        <div class="mb-2">
+          <label>Kode Promo</label>
+          <input type="text" id="kodePromo" class="form-control">
+        </div>
+        <button class="btn btn-primary" onclick="pesanProduk()">Pesan Sekarang</button>
+      </div>
+    </div>
+
+    <!-- Output Ringkasan Pesanan -->
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5>Ringkasan Pesanan</h5>
+        <div id="outputPesanan"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Data Mobil BMW
+    const produk = [
+      {
+        nama: "BMW Seri 3",
+        harga: 850000000,
+        gambar: [
+          "BMW-3-Series.webp",
+          "https://cdn.bmwblog.com/wp-content/uploads/2022/05/2023-bmw-3-series-facelift-g20-lci-1.jpg"
+        ]
+      },
+      {
+        nama: "BMW X5",
+        harga: 1550000000,
+        gambar: [
+          "bmw X5.jpg",
+          "https://www.bmwusa.com/content/dam/bmw/common/vehicles/2024/my24/x5/overview/BMW-MY24-G05-X5-Overview-Highlight-04.jpg"
+        ]
+      },
+      {
+        nama: "BMW i7 Electric",
+        harga: 2800000000,
+        gambar: [
+          "bmw i7 electric.jpg",
+          "https://cdn.bmwblog.com/wp-content/uploads/2022/04/2023-bmw-i7-images-03.jpg"
+        ]
+      }
+    ];
+
+    let indexProdukAktif = 0;
+    let indexGambarAktif = 0;
+
+    function tampilkanProduk(index) {
+      indexProdukAktif = index;
+      indexGambarAktif = 0;
+      const p = produk[index];
+      document.getElementById("product-image").src = p.gambar[0];
+      document.getElementById("product-name").textContent = p.nama;
+      document.getElementById("product-price").textContent = "Rp " + p.harga.toLocaleString();
+    }
+
+    function nextImage() {
+      const gambar = produk[indexProdukAktif].gambar;
+      indexGambarAktif = (indexGambarAktif + 1) % gambar.length;
+      document.getElementById("product-image").src = gambar[indexGambarAktif];
+    }
+
+    function prevImage() {
+      const gambar = produk[indexProdukAktif].gambar;
+      indexGambarAktif = (indexGambarAktif - 1 + gambar.length) % gambar.length;
+      document.getElementById("product-image").src = gambar[indexGambarAktif];
+    }
+
+    function tampilkanDaftarProduk() {
+      const list = document.getElementById("product-list");
+      list.innerHTML = "";
+      produk.forEach((p, i) => {
+        const item = document.createElement("li");
+        item.className = "list-group-item clickable";
+        item.textContent = p.nama;
+        item.onclick = () => tampilkanProduk(i);
+        list.appendChild(item);
+      });
+    }
+
+    function pesanProduk() {
+      const nama = document.getElementById("namaPemesan").value.trim();
+      const jumlah = parseInt(document.getElementById("jumlahPesan").value);
+      const promo = document.getElementById("kodePromo").value.trim().toUpperCase();
+
+      if (nama === "" || isNaN(jumlah) || jumlah <= 0) {
+        alert("Nama pemesan dan jumlah harus diisi dengan benar.");
+        return;
+      }
+
+      const produkDipilih = produk[indexProdukAktif];
+      const subtotal = produkDipilih.harga * jumlah;
+      let potongan = 0;
+      if (promo === "DISKON10") {
+        potongan = subtotal * 0.1;
+      }
+      const total = subtotal - potongan;
+      const orderId = "INV-" + Math.floor(Math.random() * 90000 + 10000);
+
+      const output = `
+        <p><strong>Order ID:</strong> ${orderId}</p>
+        <p><strong>Nama Pemesan:</strong> ${nama}</p>
+        <p><strong>Mobil:</strong> ${produkDipilih.nama}</p>
+        <p><strong>Jumlah:</strong> ${jumlah}</p>
+        <p><strong>Subtotal:</strong> Rp ${subtotal.toLocaleString()}</p>
+        <p><strong>Potongan:</strong> Rp ${potongan.toLocaleString()}</p>
+        <p><strong>Total Akhir:</strong> Rp ${total.toLocaleString()}</p>
+      `;
+      document.getElementById("outputPesanan").innerHTML = output;
+    }
+
+    // Tampilkan waktu real-time
+    setInterval(() => {
+      const now = new Date();
+      document.getElementById("time-now").textContent = now.toLocaleString();
+    }, 1000);
+
+    // Inisialisasi awal
+    tampilkanProduk(0);
+    tampilkanDaftarProduk();
+  </script>
+</body>
+</html>
