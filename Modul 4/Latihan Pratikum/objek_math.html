@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latihan Objek Math</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    h3 {
+      color: steelblue;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Generator Angka Acak</h2>
+  <p>Klik tombol untuk mendapatkan angka acak antara 1 dan 100.</p>
+  <button onclick="generateRandom()">Hasilkan Angka</button>
+  <h3>Angka Anda: <span id="angkaAcak">?</span></h3>
+
+  <script>
+    function generateRandom() {
+      // Menghasilkan angka acak antara 1 dan 100
+      var angka = Math.floor(Math.random() * 100) + 1;
+      document.getElementById("angkaAcak").innerText = angka;
+    }
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latihan Validasi Form</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Form Registrasi</h2>
+  <form onsubmit="return validasi()">
+    <!-- Input Nama -->
+    <label for="nama">Nama Lengkap:</label><br>
+    <input type="text" id="nama" name="nama"><br>
+    <small id="nama-error" class="error"></small><br><br>
+
+    <!-- Input Email -->
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email"><br>
+    <small id="email-error" class="error"></small><br><br>
+
+    <input type="submit" value="Daftar">
+  </form>
+
+  <script>
+    function validasi() {
+      var inputNama = document.getElementById("nama").value.trim();
+      var inputEmail = document.getElementById("email").value.trim();
+      var errorNama = document.getElementById("nama-error");
+      var errorEmail = document.getElementById("email-error");
+      var valid = true;
+
+      // Reset pesan error
+      errorNama.innerHTML = "";
+      errorEmail.innerHTML = "";
+
+      // Validasi Nama
+      if (inputNama === "") {
+        errorNama.innerHTML = "Nama tidak boleh kosong!";
+        valid = false;
+      } else if (inputNama.length < 3) {
+        errorNama.innerHTML = "Nama harus minimal 3 karakter!";
+        valid = false;
+      }
+
+      // Validasi Email
+      var polaEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (inputEmail === "") {
+        errorEmail.innerHTML = "Email tidak boleh kosong!";
+        valid = false;
+      } else if (!polaEmail.test(inputEmail)) {
+        errorEmail.innerHTML = "Format email tidak valid!";
+        valid = false;
+      }
+
+      // Jika valid, tampilkan alert
+      if (valid) {
+        alert("Registrasi berhasil!");
+      }
+
+      return valid;
+    }
+  </script>
+
+</body>
+</html>
