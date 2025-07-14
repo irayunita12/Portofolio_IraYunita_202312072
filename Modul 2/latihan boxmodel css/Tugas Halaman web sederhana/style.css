@@ -1,0 +1,87 @@
+/* Reset & Box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #add8e6;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* pratikum CSS*/
+h1 {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Paragraf */
+p {
+  background-color: #d3d3d3;
+  color: black;
+  padding: 16px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+}
+
+/* Container Grid */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Box Style */
+.container > div {
+  border: 2px solid black;
+  padding: 10px;
+  height: 150px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 130px;
+  font-weight: bold;
+}
+
+.box1 {
+  background-color: #ff9999;
+}
+.box2 {
+  background-color: #99ff99;
+}
+.box3 {
+  background-color: #9999ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .container > div {
+    height: 120px;
+    line-height: 100px;
+  }
+
+  p {
+    padding: 10px;
+  }
+}
+ 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid Responsif</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk desktop */
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-item {
+      background-color: #2196F3; /* Warna biru */
+      color: white;
+      padding: 20px;
+      font-size: 20px;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    /* Responsif untuk layar kecil */
+    @media only screen and (max-width: 600px) {
+      .grid-container {
+        grid-template-columns: 1fr; /* Ubah jadi 1 kolom */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <div class="grid-item">Item 1</div>
+    <div class="grid-item">Item 2</div>
+    <div class="grid-item">Item 3</div>
+  </div>
+
+</body>
+</html>

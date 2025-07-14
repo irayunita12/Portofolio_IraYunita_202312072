@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulir Pendaftaran Mahasiswa Baru</title>
+</head>
+<body style="font-family: 'Times New Roman', Times, serif; background-color: #ffffff; margin: 0; padding: 20px;">
+
+  <!-- Logo Kampus -->
+  <div style="text-align: center; margin-bottom: 30px; background-color: #ffffff; padding: 20px; border-radius: 10px;">
+    <img src="logo.png" alt="Logo Kampus" style="max-width: 250px;">
+  </div>
+
+  <!-- Judul Halaman -->
+  <h1 style="text-align: center; color: #2c3e50; margin-bottom: 40px;">Formulir Pendaftaran Mahasiswa Baru</h1>
+
+  <!-- Formulir -->
+  <form action="proses_pendaftaran.php" method="post" style="max-width: 600px; margin: auto; background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+
+    <!-- Data Pribadi -->
+    <fieldset style="margin-bottom: 25px; border: 1px solid #b0c4de; padding: 20px; border-radius: 8px; background-color: #f9fbfd;">
+      <legend style="font-weight: bold; color: #34495e;">Data Pribadi</legend>
+
+      <label for="nama" style="color: #34495e;">Nama Lengkap:</label><br>
+      <input type="text" id="nama" name="nama" placeholder="Contoh: Irayunita" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"><br><br>
+
+      <label for="email" style="color: #34495e;">Email:</label><br>
+      <input type="email" id="email" name="email" placeholder="Contoh: Irayunita2023@gmail.com" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"><br><br>
+
+      <label style="color: #34495e;">Jenis Kelamin :</label><br>
+      <p style="margin-top: 0; margin-bottom: 8px; color: #7f8c8d; font-size: 0.9em;">(wajib dipilih)</p>
+      <input type="radio" id="pria" name="jenis_kelamin" value="Pria" required>
+      <label for="pria" style="margin-right: 15px;">Pria</label>
+      <input type="radio" id="wanita" name="jenis_kelamin" value="Wanita">
+      <label for="wanita">Wanita</label>
+    </fieldset>
+
+    <!-- Hobi -->
+    <fieldset style="margin-bottom: 25px; border: 1px solid #b0c4de; padding: 20px; border-radius: 8px; background-color: #f9fbfd;">
+      <legend style="font-weight: bold; color: #34495e;">Hobi</legend>
+
+      <p style="color: #7f8c8d; font-size: 0.9em;">(Pilih minimal 2 hobi)</p>
+      <input type="checkbox" id="hobi1" name="hobi[]" value="Membaca">
+      <label for="hobi1" style="margin-right: 15px;">Membaca</label><br>
+      <input type="checkbox" id="hobi2" name="hobi[]" value="Olahraga">
+      <label for="hobi2" style="margin-right: 15px;">Olahraga</label><br>
+      <input type="checkbox" id="hobi3" name="hobi[]" value="Musik">
+      <label for="hobi3" style="margin-right: 15px;">Musik</label><br>
+      <input type="checkbox" id="hobi4" name="hobi[]" value="Menulis">
+      <label for="hobi4">Menulis</label>
+    </fieldset>
+
+    <!-- Jurusan dan Alamat -->
+    <fieldset style="margin-bottom: 25px; border: 1px solid #b0c4de; padding: 20px; border-radius: 8px; background-color: #f9fbfd;">
+      <legend style="font-weight: bold; color: #34495e;">Jurusan & Alamat</legend>
+
+      <label for="jurusan" style="color: #34495e;">Pilih Jurusan:</label><br>
+      <select id="jurusan" name="jurusan" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <option value="">-- Pilih Jurusan --</option>
+        <option value="Teknik Informatika">Teknik Informatika</option>
+        <option value="Teknik Elektro">Teknik Elektro</option>
+        <option value="Sistem Informasi">Sistem Informasi</option>
+        <option value="Bisnis Digital">Bisnis Digital </option>
+      </select><br><br>
+
+      <label for="alamat" style="color: #34495e;">Alamat Lengkap (Opsional):</label><br>
+      <textarea id="alamat" name="alamat" rows="4" placeholder="Contoh: Jl. Sultan Hasanuddin no 141 Bontang Selatan" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+    </fieldset>
+
+    <!-- Tombol Kirim -->
+    <div style="text-align: center; margin-top: 15px;">
+      <button type="submit" style="padding: 12px 30px; background-color: #3498db; color: white; border: none; border-radius: 8px; 
+      cursor: pointer; font-size: 1em; font-weight: bold;">Kirim</button>
+    </div>
+
+  </form>
+
+  <!-- Link ke Website Kampus -->
+  <div style="text-align: center; margin-top: 30px;">
+    <p style="color: #34495e;">Untuk informasi lebih lanjut, silakan <a href="https://stitek-bontang.ac.id" target="_blank" rel="noopener noreferrer" style="color: #2980b9; text-decoration: none;">kunjungi situs resmi STITEK</a>.</p>
+  </div>
+
+</body>
+</html>

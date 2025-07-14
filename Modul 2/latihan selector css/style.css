@@ -1,0 +1,24 @@
+#judul {
+  font-size: 28px;
+  color: darkblue;
+  text-align: center;
+}
+
+.merah {
+  background-color: #f28b82;
+  color: white;
+  padding: 10px;
+}
+
+.hijau {
+  background-color: #81c995;
+  color: white;
+  padding: 10px;
+}
+
+.biru {
+  background-color: #a7c7e7;
+  color: black;
+  padding: 10px;
+}
+
