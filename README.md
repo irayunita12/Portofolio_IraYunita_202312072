@@ -19,8 +19,8 @@ Repositori ini berisi kumpulan folder dari setiap modul dalam praktikum Pemrogra
 - [Modul 3] (link:https://github.com/irayunita12/Portofolio_IraYunita_202312072/tree/main/Modul%203)
 - [Modul 4] (link:https://github.com/irayunita12/Portofolio_IraYunita_202312072/tree/main/Modul%204)
 - [Modul 5] (link:https://github.com/irayunita12/Portofolio_IraYunita_202312072/tree/main/Modul%205)
-- [Modul 6] (link:)
-- [Modul 7] (link:)
+- [Modul 6] (link:https://github.com/irayunita12/Portofolio_IraYunita_202312072/tree/main/Modul%206)
+- [Modul 7] (link:https://github.com/irayunita12/Portofolio_IraYunita_202312072/blob/main/README.md)
 
 
 ## 📌 Catatan
